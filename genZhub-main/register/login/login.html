@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 150px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+        }
+        #texta{
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+        #textb{
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+        #textc{
+            /* border: 2px solid black; */
+            text-align: center;
+            padding-left: 550px;
+        }
+        .samebox{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 id="texta">Hello User!</h1>
+        <h1 id="textb">Welcome to genZhub!</h1>
+        <h3 id="textc">~where tommorow's tech meets today's issues.</h3>
+    </div>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="form-group">
+                <button type="button" id="submitData" name="submitData" class="loginbtn">Login</button>
+                <div class="samebox">
+                    <button id="google">Google</button>
+                    <h3>Don't have an account?</h3>
+                    <a href="register.html">Register</a>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+<!-- <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getDatabase  } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDeGzNFHeNnDYpO_4bFsUA38BFEqomNeFo",
+        authDomain: "genzhub-fd763.firebaseapp.com",
+        projectId: "genzhub-fd763",
+        storageBucket: "genzhub-fd763.appspot.com",
+        messagingSenderId: "893420221934",
+        appId: "1:893420221934:web:64e10ccd7212ffc436caff",
+        measurementId: "G-W0ELG1XK21",
+
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const loginBtn = document.getElementById('login');
+    const logoutBtn = document.getElementById('logout');
+
+    login.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                
+                alert('User logged in');
+                window.location.href = "../register.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    });
+
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('User logged out');
+        }).catch((error) => {
+            // An error happened.
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    });
+});
+
+
+  </script> -->
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+    import { getDatabase , set , ref , update} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+      authDomain: "reg-log-3cfe5.firebaseapp.com",
+      projectId: "reg-log-3cfe5",
+      storageBucket: "reg-log-3cfe5.appspot.com",
+      messagingSenderId: "129613168031",
+      appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    
+    submitData.addEventListener('click' , (e) => {
+        
+        var email = document.getElementById( 'email' ).value ;
+        var password = document.getElementById( 'password' ).value ;
+        // var username = document.getElementById('username').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+               
+                var lgDate = new Date();
+                update(ref(database, 'login/' + user.uid), {
+                   last_login: lgDate,
+                })
+                    
+                .then(() => {
+                    // Data saved successfully!
+                    alert('user logged in successfully');
+                    window.location.href = "profile.html";
+
+                 })
+                    .catch((error) => {
+                    // The write failed...
+                        alert(error);
+
+                    });
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+
+
+        });
+
+        const googleBtn = document.getElementById("google");
+    googleBtn.addEventListener('click', (e) => {
+            signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                
+                alert(user.displayName);
+                window.location.href = "profile.html";
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+                alert(errorMessage);
+            });
+
+        });
+  </script>
+
+</html>

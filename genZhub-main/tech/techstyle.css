@@ -1,0 +1,284 @@
+body {
+  display: flex;
+  margin: 0px;
+  /* background-color: #003362; Fallback color */
+  font-family: Arial, sans-serif;
+  /* background: linear-gradient(rgba(255, 255, 255, 0.197), rgba(255, 255, 255, 0.268)), url('https://source.unsplash.com/1920x1080/?technology') no-repeat center center fixed; */
+  background-size: cover;
+  /* Use linear gradient as background */
+  overflow-x: hidden;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+#title{
+    font-size: 40px;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar-tech {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  background-color: #6B705C;
+  top: 0; /* Add "top: 0;" to ensure it sticks to the top */
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 2px solid rgba(58, 45, 45, 0.611); */
+  flex-direction: row;
+  /* background-color:#1154B8 ; */
+}
+
+  .joint{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    /* padding: 10px; */
+    margin: 0px;
+  }
+/* profile tag starts from here */
+#profileimage{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+/* navmenu starts from here */
+/* Dropdown container */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+#menuimage{
+    width: 50px;
+    height: 50px;
+   }
+  
+  /* Dropdown button */
+.dropdown-button {
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #6B705C;
+  margin: 15px;
+  /* margin-right: 80px; */
+  border-radius: 4px;
+  height: 30px;
+  width: 80px;
+  color: black;
+  margin-bottom: 20px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute; /*Adjust positioning*/
+    top: 95%; /* Position below the button */
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    height:700px;
+    width: 200px;
+    color: black;
+    /* mix-blend-mode: difference;  */
+    font-size:18px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color:rgb(218, 217, 217) ;
+  }
+  
+  .show {
+    display: block;
+  }
+  /* css for widgets starts from here */
+  .whole{
+    display: flex;
+    flex-direction: row;
+    /* margin: auto; */
+  }
+  .widgets{
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid black; */
+    width: 1000px;
+    height: 100%;
+    margin-top: 85px;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+    align-items: flex-start;
+  }
+  .widget{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    width: 400px;
+    height: 400px;
+    margin: 40px;
+    background-color: #454c5572;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    color: white;
+    /* mix-blend-mode: difference;  */
+   align-items: center;
+  }
+ 
+  .widget-img{
+    width: 90%;
+    height: 65%;
+    border-radius: 20px 20px 0px 0px;
+    /* border: 2px solid black; */
+    
+  }
+
+  .widget-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover;
+    border-radius: 3rem;
+  }
+  .widget-content{
+    position: absolute; /*Position content absolutely within the parent */
+  top: 65%; /* Position content 50% from the top */
+  /* left: 50%; Position content 50% from the left */
+  /* right: 100%; */
+  transform: translate(0%, -50%); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+  height: 10%;
+  width: 20%;
+  overflow: visible;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  font-weight: bolder;
+  text-decoration: underline;
+  color: black;
+  }
+  .widget-content-two{
+    height: 25%;
+  /* border: 2px solid black; */
+  width: 85%;
+  color: black;
+  padding-top: 35px;
+  }
+
+
+  /* css for dashboard starts from here */
+  .dashboard{
+    /* z-index: 3; */
+    display: flex;
+    margin-top: 85px;
+    /* border: 2px solid black; */
+    width: 300px;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    margin-left: 200px;
+  } 
+  
+
+
+.quiz-container {
+    max-width: 600px;
+    margin: 80px auto; /* Center the container with more margin */
+    padding: 40px; /* Increase padding for more spacing */
+    text-align: center;
+    border: 1px solid linear-gradient(to bottom, #011430, #a6c0ec);;
+    border-radius: 10px;
+    background-color: linear-gradient(to bottom, #011430, #a6c0ec);; /* White background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow with increased blur */
+}
+
+
+h1 {
+    color: black  ; /* White text color for headings */
+    margin-bottom: 30px; /* Add more space below the heading */
+}
+
+.options-container {
+    margin-top: 30px; /* Increase margin between options */
+}
+
+.button-two {
+    margin-top: 30px; /* Increase top margin for better spacing */
+    padding: 15px 30px; /* Increase button padding for better touch/click targets */
+    background-color: #0056b3; /* Darker blue background for buttons */
+    border-radius: 8px; /* Increase border radius for rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.button-two :hover {
+    background-color: #003d7f; /* Darken the background on hover */
+}
+
+.option-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px; /* Add more space between option buttons */
+    padding: 15px; /* Increase button padding for better touch/click targets */
+    background-color: #f0f0f0; /* Light gray background for options */
+    color: #333; /* Dark text color */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Increase border radius for rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.option-btn:hover {
+    background-color: #e0e0e0; /* Darken the background on hover */
+}
+
+
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow with increased blur */
+
+}
+
+.button-two{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-two:hover {
+    background-color: #0056b3;
+}
+ #titletwo{
+    position: relative;
+    margin-top: 0px;
+   }
+
+/* codepen starts here  */

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="social.css">
+    <script src="social.js"></script>   
+    <title>Social Issues</title>
+</head>
+<body>
+    <div class="navbar-tech">
+        <h1 id="title">genZhub</h1>
+        <div class="joint">
+            <div class="dropdown-container">
+                <button onclick="toggleDropdown()" class="dropdown-button">
+                    &#9776;
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="../register/login/profile.html">Profile</a>
+                    <a href="../tech/tech.html">Technology</a>
+                    <a href="../social/social.html">Social Issues</a>
+                    <a href="../business/business.html">Business</a>
+                    <a href="../entertainment/enter.html">Entertainment</a>
+                    <a href="../home/main.html">Home</a>
+                    <a href="../forum/forum.html">Forum</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/main.html#contact-usa">Contact Us</a>
+                </div>
+            </div>
+            <div class="profile">
+                <a href="../register/login/main_profile.html"><img src="../image/profile.png" alt="" id="profileimage"></a>
+            </div>
+        </div>
+    </div>
+   <div class="whole">
+    <div class="widgets">
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://www.hindustantimes.com/ht-img/img/2023/05/19/550x309/christopher-catbagan-GJsyfWI2XQ0-unsplash_1684497729820_1684497753137.jpg" alt="">
+            </div>
+            <div class="widget-content">
+                <h2>Mental Health Awareness Month: Unique mental health issues faced by Gen Z healing journey</h2>
+            </div>
+            <div class="widget-content-two">
+                <p> <br>Mental Health Awareness Month, observed from May 1 to May 31, serves as a vital platform to acknowledge  <a href="https://www.hindustantimes.com/lifestyle/health/mental-health-awareness-month-unique-mental-health-issues-faced-by-gen-z-and-ways-to-help-them-in-their-healing-journey-101684496076084.html">read more</a></p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://wpcdn.unitedwaypbc.org/uploads/How-Generation-Z-Can-Get-Involved-and-Make-an-Impact.png?auto=format&q=35&h=1&w=1436" alt="">
+            </div>
+            <div class="widget-content">
+                <h2>HOW GENERATION Z CAN GET INVOLVED AND MAKE AN IMPACT.</h2>
+            </div>
+            <div class="widget-content-two">
+                <p> <br>Generation Z, commonly nicknamed Gen Z, Zoomers, centennials, and the internet generation, <a href="https://unitedwaypbc.org/blog/volunteer/how-generation-z-can-get-involved-and-make-an-impact">read more</a></p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://assets.aecf.org/m/blogimg/_largeHeader/blog-generationzandsocialissues-2020.jpg" alt="">
+            </div>
+            <div class="widget-content">
+                <!-- <h2>Lorem ipsum dolor, sit amet consectetur adipisicing.</h2> -->
+            </div>
+            <div class="widget-content-two">
+                <h4>SOCIAL ISSUES THAT MATTER TO GENERATION Z <a href="https://www.aecf.org/blog/generation-z-social-issues">read more</a></h4>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://imageio.forbes.com/specials-images/imageserve/629cf66a5f0333cadebb3b50/Social-Justice-Together/0x0.jpg?format=jpg&crop=3188,1792,x156,y0,safe&width=1440" alt="">
+            </div>
+            <div class="widget-content">
+                <!-- <h2>Lorem ipsum dolor, sit amet consectetur adipisicing.</h2> -->
+            </div>
+            <div class="widget-content-two">
+               <h4>Gen-Z Demand Racial Justice, Not Just Diversity, Equity And Inclusion From Brands <a href="https://www.forbes.com/sites/kianbakhtiari/2022/06/05/gen-z-demand-racial-justice-not-just-diversity-equity-and-inclusion-from-brands/?sh=7547d3f61781">read more</a></h4>
+            </div>
+        </div>
+        <!-- <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div> -->
+    </div>
+    <div class="dashboard">
+        <h1 id="titletwo">Social Issues</h1>
+        <div class="quiz-container">
+            <h1 id="quizTitle">Quiz Time!</h1>
+            <div id="question"></div>
+            <div id="options" class="options-container"></div>
+            <button class="button-two" id="submitBtn">Submit</button>
+            <div id="result"></div>
+        </div>
+        <div class="container">
+            <h1>POLLS</h1>
+            <h3 id="pollTitle">What's your favorite color?</h3>
+            <div id="pollOptions">
+                <!-- Poll options will be loaded dynamically here -->
+            </div>
+            <button class="button-two" id="voteBtn">Vote</button>
+            <div id="pollResult"></div>
+        </div>
+
+    
+        </div>
+     </div>   
+
+    
+
+    
+    <script src="social.js"></script> 
+
+</body>
+<script>
+    let quizData = []; // Array to store quiz questions
+        let currentQuestion = 0; // Index of the current question
+        let score = 0; // User's score
+
+        // Function to load a quiz question
+        function loadQuestion() {
+            const currentQuizData = quizData[currentQuestion];
+            document.getElementById('question').innerText = currentQuizData.question;
+
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuizData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                button.addEventListener('click', selectOption);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        // Function to handle option selection
+        function selectOption(event) {
+            const selectedOption = event.target.innerText;
+            const currentQuizData = quizData[currentQuestion];
+            if (selectedOption === currentQuizData.answer) {
+                score++;
+            }
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // Function to display quiz result
+        function showResult() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('options').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('result').innerText = `You scored ${score} out of ${quizData.length}!`;
+        }
+
+        // Function to fetch new quiz data from the server
+        function fetchQuizData() {
+            // Replace the sample quiz data with actual data fetched from the server
+            // You can have a pool of quiz questions and select a random subset each time
+            const quizPool = [
+                [
+                    {
+                        question: "What is the biggest challenge faced by refugees worldwide?",
+                        options: ["Access to education", "Access to healthcare", "Employment opportunities", "Discrimination and xenophobia"],
+                        answer: "Discrimination and xenophobia"
+                    },
+                    {
+                        question: "What percentage of the world's population lives below the poverty line?",
+                        options: ["10%", "20%", "30%", "40%"],
+                        answer: "10%"
+                    },
+                    {
+                        question: "Which of the following is a major contributor to climate change?",
+                        options: ["Deforestation", "Renewable energy", "Reduced carbon emissions", "Water conservation"],
+                        answer: "Deforestation"
+                    },
+                    {
+                        question: "What is one of the primary causes of homelessness?",
+                        options: ["Mental illness", "High housing costs", "Lack of job opportunities", "Social media addiction"],
+                        answer: "High housing costs"
+                    }
+                ],
+                [
+                    {
+                        question: "What is one of the main challenges faced by LGBTQ+ individuals?",
+                        options: ["Access to healthcare", "Legal recognition of relationships", "Employment discrimination", "Cyberbullying"],
+                        answer: "Employment discrimination"
+                    },
+                    {
+                        question: "Which of the following is a significant contributor to income inequality?",
+                        options: ["Universal basic income", "Corporate tax cuts", "Minimum wage increases", "Taxing the wealthy"],
+                        answer: "Corporate tax cuts"
+                    },
+                    {
+                        question: "What is a common consequence of food insecurity?",
+                        options: ["Obesity", "Malnutrition", "Food waste", "Economic growth"],
+                        answer: "Malnutrition"
+                    },
+                    {
+                        question: "What is a major barrier to access clean water in developing countries?",
+                        options: ["Lack of water sources", "Pollution", "High demand", "Overpopulation"],
+                        answer: "Pollution"
+                    }
+                ],
+                [
+                    {
+                        question: "Which demographic is most affected by human trafficking?",
+                        options: ["Children", "Women", "Men", "Elderly"],
+                        answer: "Women"
+                    },
+                    {
+                        question: "What is a significant impact of social media on mental health?",
+                        options: ["Increased loneliness", "Improved self-esteem", "Decreased anxiety", "Enhanced social connections"],
+                        answer: "Increased loneliness"
+                    },
+                    {
+                        question: "What is a common challenge faced by indigenous communities?",
+                        options: ["Loss of cultural identity", "Access to technology", "Urbanization", "Economic stability"],
+                        answer: "Loss of cultural identity"
+                    },
+                    {
+                        question: "What contributes to the digital divide?",
+                        options: ["Government subsidies", "Equal access to technology", "Income level", "Social media usage"],
+                        answer: "Income level"
+                    }
+                ],
+                [
+                    {
+                        question: "What is a primary concern regarding privacy in the digital age?",
+                        options: ["Data breaches", "Online anonymity", "Government transparency", "Free speech"],
+                        answer: "Data breaches"
+                    },
+                    {
+                        question: "Which of the following is a significant challenge in achieving gender equality?",
+                        options: ["Equal pay", "Parental leave policies", "Access to education", "Gender quotas"],
+                        answer: "Equal pay"
+                    },
+                    {
+                        question: "What is a common consequence of cyberbullying?",
+                        options: ["Depression", "Increased self-confidence", "Better social skills", "Stronger friendships"],
+                        answer: "Depression"
+                    },
+                    {
+                        question: "What is a major obstacle in addressing mental health stigma?",
+                        options: ["Lack of awareness", "Easy access to treatment", "Supportive social networks", "Media representation"],
+                        answer: "Lack of awareness"
+                    }
+                ]
+            ];
+
+            // Select a random set of questions from the pool
+            const randomSetIndex = Math.floor(Math.random() * quizPool.length);
+            const newQuizData = quizPool[randomSetIndex];
+
+            // Update quiz title
+            document.getElementById('quizTitle').innerText = "New Quiz Title";
+
+            // Update quiz data
+            quizData = newQuizData;
+            currentQuestion = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        // Function to fetch new poll data from the server
+        function fetchPollData() {
+            // Replace the sample poll data with actual data fetched from the server
+            const pollPool = [
+                {
+                    question: "What social issue concerns you the most?",
+                    options: ["Climate change", "Poverty", "Gender inequality", "Mental health"]
+                },
+                {
+                    question: "Which factor do you think contributes most to homelessness?",
+                    options: ["Lack of affordable housing", "Mental illness", "Substance abuse", "Unemployment"]
+                },
+                {
+                    question: "What do you believe is the biggest barrier to education in developing countries?",
+                    options: ["Lack of infrastructure", "Poverty", "Gender discrimination", "Conflict"]
+                },
+                {
+                    question: "Which aspect of healthcare accessibility needs the most improvement globally?",
+                    options: ["Affordability", "Availability of facilities", "Quality of care", "Health education"]
+                }
+            ];
+
+            // Select a random poll from the pool
+            const randomPollIndex = Math.floor(Math.random() * pollPool.length);
+            const newPollData = pollPool[randomPollIndex];
+
+            // Update poll title
+            document.getElementById('pollTitle').innerText = newPollData.question;
+
+            // Update poll options
+            const pollOptionsContainer = document.getElementById('pollOptions');
+            pollOptionsContainer.innerHTML = '';
+            newPollData.options.forEach(option => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="pollOption" value="${option}"> ${option}<br>`;
+                pollOptionsContainer.appendChild(label);
+            });
+        }
+
+        // Call fetchQuizData and fetchPollData functions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchQuizData();
+            fetchPollData();
+        });
+
+        // Add event listener to vote button
+        document.getElementById('voteBtn').addEventListener('click', function() {
+            submitVote();
+        });
+
+        // Add event listener to window load for refreshing quiz data
+        window.addEventListener('load', function() {
+            fetchQuizData();
+        });
+    
+  </script>
+
+</html>
