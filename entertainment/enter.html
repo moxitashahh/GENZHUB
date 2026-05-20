@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="enter.css">
+    <script src="enter.js"></script>
+    <title>Entertainment</title>
+</head>
+<body>
+    <div class="navbar-tech">
+        <h1 id="title">genZhub</h1>
+        <div class="joint">
+            <div class="dropdown-container">
+                <button onclick="toggleDropdown()" class="dropdown-button">
+                    &#9776;
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="../register/login/profile.html">Profile</a>
+                    <a href="../tech/tech.html">Technology</a>
+                    <a href="../social/social.html">Social Issues</a>
+                    <a href="../business/business.html">Business</a>
+                    <a href="../entertainment/enter.html">Entertainment</a>
+                    <a href="../home/main.html">Home</a>
+                    <a href="../forum/forum.html">Forum</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/main.html#contact-usa">Contact Us</a>
+                </div>
+            </div>
+            <div class="profile">
+                <a href="../register/login/main_profile.html"><img src="../image/profile.png" alt="" id="profileimage"></a>
+            </div>
+        </div>
+    </div>
+   <div class="whole">
+    <div class="widgets">
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/750x500/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25378907/STK088_SPOTIFY_CVIRGINIA_C.jpg" alt="">
+            </div>
+            <div class="widget-content">
+                <h2>Apple blocked Spotify’s latest EU update, again</h2>
+            </div>
+            <div class="widget-content-two">
+                <p>Spotify submitted a new version of its iOS app with in-app pricing information for users in the European Union <a href="https://www.theverge.com/2024/4/24/24139335/spotify-apple-eu-ios-app-update-submission-antitrust-dma">read more</a></p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:1920x1080/1440x960/filters:focal(960x540:961x541):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25415535/SB_Demo_PR_Roll_Screenshots_Prologue_06.jpg" alt="">
+            </div>
+            <div class="widget-content">
+                <h2>Stellar Blade on PS5 has flash and fun but is mostly dull</h2>
+            </div>
+            <div class="widget-content-two">
+                <p>During the opening moments of Stellar Blade, the protagonist, Eve, runs along an enemy-infested beach while huge explosions <a href="https://www.theverge.com/24139050/stellar-blade-review-ps5-exclusive">read more</a></p>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:1280x720/750x500/filters:focal(640x360:641x361):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25417925/garrys_mod_screenshot.jpg" alt="">
+            </div>
+            <div class="widget-content">
+                <!-- <h2>Lorem ipsum dolor, sit amet consectetur adipisicing.</h2> -->
+            </div>
+            <div class="widget-content-two">
+                <h3 style="text-decoration: underline;">Garry’s Mod is taking down decades of Nintendo-related add-ons <a href="https://www.theverge.com/2024/4/25/24140246/garrys-mod-nintendo-copyright-takedowns-dmca">read more</a></h3>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-img">
+                <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:1920x1080/640x640/filters:focal(963x787:964x788):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25415839/Screenshot_08.png" alt="">
+            </div>
+            <div class="widget-content">
+                <!-- <h2>Lorem ipsum dolor, sit amet consectetur adipisicing.</h2> -->
+            </div>
+            <div class="widget-content-two">
+                
+                <h3  style="text-decoration: underline;">Another Crab’s Treasure is a cheery, accessible take on Dark Souls
+                <a href="https://www.theverge.com/24139208/another-crabs-treasure-review-xbox-switch-ps5">read more</a> </h3>
+            </div>
+        </div>
+        <!-- <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div> -->
+    </div>
+    <div class="dashboard">
+        <h1 id="titletwo">Entertainment</h1>
+        <div class="quiz-container">
+            <h1 id="quizTitle">Quiz Time!</h1>
+            <div id="question"></div>
+            <div id="options" class="options-container"></div>
+            <button class="button-two" id="submitBtn">Submit</button>
+            <div id="result"></div>
+        </div>
+        <div class="container">
+            <h1>POLLS</h1>
+            <h3 id="pollTitle">What's your favorite color?</h3>
+            <div id="pollOptions">
+                <!-- Poll options will be loaded dynamically here -->
+            </div>
+            <button class="button-two" id="voteBtn">Vote</button>
+            <div id="pollResult"></div>
+        </div>
+    
+        </div>
+     </div>   
+
+    
+
+    
+    <script src="enter.js"></script> 
+
+</body>
+<script>
+    let quizData = []; // Array to store quiz questions
+        let currentQuestion = 0; // Index of the current question
+        let score = 0; // User's score
+
+        // Function to load a quiz question
+        function loadQuestion() {
+            const currentQuizData = quizData[currentQuestion];
+            document.getElementById('question').innerText = currentQuizData.question;
+
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuizData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                button.addEventListener('click', selectOption);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        // Function to handle option selection
+        function selectOption(event) {
+            const selectedOption = event.target.innerText;
+            const currentQuizData = quizData[currentQuestion];
+            if (selectedOption === currentQuizData.answer) {
+                score++;
+            }
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // Function to display quiz result
+        function showResult() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('options').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('result').innerText = `You scored ${score} out of ${quizData.length}!`;
+        }
+
+        // Function to fetch new quiz data from the server
+        function fetchQuizData() {
+            // Replace the sample quiz data with actual data fetched from the server
+            // You can have a pool of quiz questions and select a random subset each time
+            const quizPool = [
+                [
+                    {
+                        question: "Who played the lead role in the movie 'Inception'?",
+                        options: ["Leonardo DiCaprio", "Tom Cruise", "Brad Pitt", "Johnny Depp"],
+                        answer: "Leonardo DiCaprio"
+                    },
+                    {
+                        question: "Which of these movies won the Academy Award for Best Picture in 2020?",
+                        options: ["Parasite", "1917", "Joker", "Once Upon a Time in Hollywood"],
+                        answer: "Parasite"
+                    },
+                    {
+                        question: "Who directed the 'Lord of the Rings' film trilogy?",
+                        options: ["Steven Spielberg", "James Cameron", "Peter Jackson", "Christopher Nolan"],
+                        answer: "Peter Jackson"
+                    },
+                    {
+                        question: "Which actor portrayed Harry Potter in the film series?",
+                        options: ["Daniel Radcliffe", "Rupert Grint", "Tom Felton", "Matthew Lewis"],
+                        answer: "Daniel Radcliffe"
+                    }
+                ],
+                [
+                    {
+                        question: "Which of these musicians is known as the 'King of Pop'?",
+                        options: ["Elvis Presley", "Michael Jackson", "Frank Sinatra", "Prince"],
+                        answer: "Michael Jackson"
+                    },
+                    {
+                        question: "What is the best-selling album of all time?",
+                        options: ["Thriller by Michael Jackson", "The Dark Side of the Moon by Pink Floyd", "Back in Black by AC/DC", "Led Zeppelin IV by Led Zeppelin"],
+                        answer: "Thriller by Michael Jackson"
+                    },
+                    {
+                        question: "Who is known for the hit song 'Shape of You'?",
+                        options: ["Ed Sheeran", "Bruno Mars", "Justin Bieber", "Adele"],
+                        answer: "Ed Sheeran"
+                    },
+                    {
+                        question: "Which band performed the song 'Bohemian Rhapsody'?",
+                        options: ["Queen", "The Beatles", "Led Zeppelin", "Pink Floyd"],
+                        answer: "Queen"
+                    }
+                ],
+                [
+                    {
+                        question: "Which TV show features characters named Chandler, Ross, and Rachel?",
+                        options: ["Friends", "The Office", "Breaking Bad", "Game of Thrones"],
+                        answer: "Friends"
+                    },
+                    {
+                        question: "Who created the animated TV series 'The Simpsons'?",
+                        options: ["Seth MacFarlane", "Matt Groening", "Trey Parker", "Mike Judge"],
+                        answer: "Matt Groening"
+                    },
+                    {
+                        question: "Which streaming platform is known for producing 'Stranger Things'?",
+                        options: ["Netflix", "Hulu", "Amazon Prime Video", "Disney+"],
+                        answer: "Netflix"
+                    },
+                    {
+                        question: "Who is the host of 'The Late Late Show'?",
+                        options: ["Jimmy Fallon", "James Corden", "Jimmy Kimmel", "Stephen Colbert"],
+                        answer: "James Corden"
+                    }
+                ],
+                [
+                    {
+                        question: "Who won the Academy Award for Best Actor in 2019?",
+                        options: ["Joaquin Phoenix", "Brad Pitt", "Leonardo DiCaprio", "Daniel Day-Lewis"],
+                        answer: "Joaquin Phoenix"
+                    },
+                    {
+                        question: "Which actress played the lead role in the movie 'La La Land'?",
+                        options: ["Emma Stone", "Jennifer Lawrence", "Natalie Portman", "Scarlett Johansson"],
+                        answer: "Emma Stone"
+                    },
+                    {
+                        question: "Who directed the film 'The Dark Knight'?",
+                        options: ["Christopher Nolan", "Martin Scorsese", "Quentin Tarantino", "David Fincher"],
+                        answer: "Christopher Nolan"
+                    },
+                    {
+                        question: "Which TV show is set in the fictional land of Westeros?",
+                        options: ["Game of Thrones", "Breaking Bad", "The Walking Dead", "Stranger Things"],
+                        answer: "Game of Thrones"
+                    }
+                ]
+            ];
+
+            // Select a random set of questions from the pool
+            const randomSetIndex = Math.floor(Math.random() * quizPool.length);
+            const newQuizData = quizPool[randomSetIndex];
+
+            // Update quiz title
+            document.getElementById('quizTitle').innerText = "New Quiz Title";
+
+            // Update quiz data
+            quizData = newQuizData;
+            currentQuestion = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        // Function to fetch new poll data from the server
+        function fetchPollData() {
+            // Replace the sample poll data with actual data fetched from the server
+            const pollPool = [
+                {
+                    question: "Which movie genre do you enjoy the most?",
+                    options: ["Action", "Comedy", "Drama", "Science Fiction"]
+                },
+                {
+                    question: "Who is your favorite musical artist?",
+                    options: ["Beyoncé", "Taylor Swift", "Drake", "Ariana Grande"]
+                },
+                {
+                    question: "What is your favorite TV show genre?",
+                    options: ["Sitcom", "Crime Drama", "Fantasy", "Reality TV"]
+                },
+                {
+                    question: "What is your preferred platform for watching movies and TV shows?",
+                    options: ["Netflix", "Hulu", "Amazon Prime Video", "Disney+"]
+                }
+            ];
+            // Select a random poll from the pool
+            const randomPollIndex = Math.floor(Math.random() * pollPool.length);
+            const newPollData = pollPool[randomPollIndex];
+
+            // Update poll title
+            document.getElementById('pollTitle').innerText = newPollData.question;
+
+            // Update poll options
+            const pollOptionsContainer = document.getElementById('pollOptions');
+            pollOptionsContainer.innerHTML = '';
+            newPollData.options.forEach(option => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="pollOption" value="${option}"> ${option}<br>`;
+                pollOptionsContainer.appendChild(label);
+            });
+        }
+
+        // Call fetchQuizData and fetchPollData functions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchQuizData();
+            fetchPollData();
+        });
+
+        // Add event listener to vote button
+        document.getElementById('voteBtn').addEventListener('click', function() {
+            submitVote();
+        });
+
+        // Add event listener to window load for refreshing quiz data
+        window.addEventListener('load', function() {
+            fetchQuizData();
+        });
+    
+    
+  </script>
+
+</html>
